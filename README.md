@@ -6,7 +6,7 @@ This is the repository for the task of Fact Extraction and Verification describe
 
 ### Baseline
 
-The baseline model constists of two Logistic Regression models for document retrieval and sentence selection respectively.
+ * The baseline model constists of two Logistic Regression models for document retrieval and sentence selection respectively.
 
 ### Find Out More
 
