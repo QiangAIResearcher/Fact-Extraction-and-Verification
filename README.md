@@ -44,6 +44,7 @@ Create a term-document count matrix for each split, and then merge the count mat
  
     python reweight_count_matrix.py data/index/count-ngram\=1-hash\=16777216.npz data/index --model tfidf
 
+The remaining task for FEVER challenge, i.e. document retrieval, sentence selection, sampling for NotEnoughInfo, and RTE training are done in IPython notebook `fever.ipynb` and implementation in `fever.py`. The class `Oracle` reads either TF-IDF or PMI matrix and have methods for finding relevant documents, sentences, etc. given the input claim.
 
 ## Find Out More
 
