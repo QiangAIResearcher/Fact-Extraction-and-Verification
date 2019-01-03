@@ -29,20 +29,20 @@ Construct an SQLite Database. A commercial personal laptop seems not work when d
     
     python build_db.py
 
-### 3. Create Term-Document count matrices and merge
-Create a term-document count matrix for each split, and then merge the count matrices.
+### 3. Create Term-Document count matrix and the TF-IDF matrix
+Create a term-document count matrix 
+
+    python build_count_matrix.py data/fever/fever0.db data/index
     
-    python build_count_matrix.py data/fever data/index
-    python merge_count_matrix.py data/index data/index
+Create the TF-IDF 
+
+    python reweight_count_matrix.py data/index/count-ngram\=1-hash\=16777216.npz data/index --model tfidf
+ 
 
 ## Baseline
 
- The baseline model constists of two Logistic Regression models based on TF-IDF for document retrieval and sentence selection respectively. 
- 
-    python reweight_count_matrix.py data/index/count-ngram\=1-hash\=16777216.npz data/index --model tfidf
-
-The remaining task for FEVER challenge, i.e. document retrieval, sentence selection, sampling for NotEnoughInfo, and RTE training are done in IPython notebook `fever.ipynb` and implementation in `fever.py`. The class `Oracle` reads either TF-IDF or PMI matrix and have methods for finding relevant documents, sentences, etc. given the input claim.
-
+ The baseline model retrieve documents and select senetences based on TF-IDF respectively, which is done in IPython notebook `fever.ipynb` and implemented in `fever.py`. The class `Oracle` reads either TF-IDF matrix and have methods for finding relevant documents and sentences given the input claim.
+  
 ## Find Out More
 
  Visit [http://fever.ai](http://fever.ai) to find out more about the shared task and download the data.
