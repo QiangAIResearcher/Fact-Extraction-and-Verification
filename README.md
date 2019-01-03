@@ -36,7 +36,7 @@ Create a term-document count matrix
     
 Create the TF-IDF 
 
-    python reweight_count_matrix.py data/index/count-ngram\=1-hash\=16777216.npz data/index --model tfidf
+    python reweight_count_matrix.py data/index/tfidf-fever0-ngram=1-hash=16777216.npz data/index --model tfidf
  
 
 ## Baseline
