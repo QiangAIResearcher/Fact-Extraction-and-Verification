@@ -19,7 +19,6 @@ Download the FEVER dataset from the [website](http://fever.ai/data.html) into th
 The data preparation consists of three steps: downloading the articles from Wikipedia, indexing these for the Evidence Retrieval and performing the negative sampling for training.  
 
 ### 1. Download Wikipedia data
-
 Download the pre-processed Wikipedia articles from [the website](https://sheffieldnlp.github.io/fever/data.html) and unzip it into the data folder.
     
     wget https://s3-eu-west-1.amazonaws.com/fever.public/wiki-pages.zip
