@@ -27,8 +27,7 @@ Download the pre-processed Wikipedia articles from [the website](https://sheffie
 ### 2. Construct SQLite Database
 Construct an SQLite Database. A commercial personal laptop seems not work when dealing with the entire database as a single file so we split the Wikipedia database into a few files too. 
     
-    python build_db.py data/wiki-pages/wiki-pages data/fever --num-files 5
-
+    python build_db.py
 
 ### 3. Create Term-Document count matrices and merge
 Create a term-document count matrix for each split, and then merge the count matrices.
