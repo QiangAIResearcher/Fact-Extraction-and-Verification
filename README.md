@@ -24,7 +24,6 @@ Download the pre-processed Wikipedia articles from [the website](https://sheffie
     wget https://s3-eu-west-1.amazonaws.com/fever.public/wiki-pages.zip
     unzip wiki-pages.zip -d data
  
-
 ### 2. Construct SQLite Database
 Construct an SQLite Database. A commercial personal laptop seems not work when dealing with the entire database as a single file so we split the Wikipedia database into a few files too. 
     
