@@ -23,6 +23,8 @@ Download the pre-processed Wikipedia articles from [the website](https://sheffie
     
     wget https://s3-eu-west-1.amazonaws.com/fever.public/wiki-pages.zip
     unzip wiki-pages.zip -d data
+    
+    Wiki-pages data is in the dictionary form. The keys are "id", "text" and "lines" that mean the wiki-page URL, content of the wiki-page and each sentence in the content. Note that the sentence is seperated by \n and the marking number starts from 0. 
  
 ### 2. Construct SQLite Database
 Construct an SQLite Database. A commercial personal laptop seems not work when dealing with the entire database as a single file so we split the Wikipedia database into a few files too. 
