@@ -31,4 +31,4 @@ Use the fever_io.py to read the fever project dataset.
 
 ## Find Out More
 
- Visit [http://fever.ai](http://fever.ai) to find out more about the shared task and download the data.
+ Visit [http://fever.ai/2018/task.html](http://fever.ai/2018/task.html) to find out more about the shared task.
