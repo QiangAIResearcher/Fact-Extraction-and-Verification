@@ -26,7 +26,7 @@ Download the pre-processed Wikipedia articles from [the website](https://sheffie
 Wiki-pages data is in the dictionary form. The keys are "id", "text" and "lines" that mean the wiki-page URL, content of the wiki-page and each sentence in the content. Note that the sentence is seperated by \n and the marking number starts from 0. 
 
 ## Read Data
-Use the fever_io.py to read the fever project dataset.
+Use the fever_io.py to read the fever project dataset. You may also refer to [https://github.com/sheffieldnlp/fever-naacl-2018/tree/master/src/scripts](https://github.com/sheffieldnlp/fever-naacl-2018/tree/master/src/scripts).
 
 
 ## Find Out More
