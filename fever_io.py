@@ -11,11 +11,6 @@ from tqdm import tqdm
 from collections import Counter
 from nltk import word_tokenize
 
-def read_jsonl(path):
-    with open(path, "r") as in_file:
-        out = [json.loads(line) for line in in_file]
-    return out
-
 
 def parse_wiki(wikipedia_dir, doc_id_dir):
     """
