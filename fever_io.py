@@ -14,8 +14,17 @@ from nltk import word_tokenize
 
 def parse_wiki(wikipedia_dir, doc_id_dir):
     """
-    Returns a dictionary lookup from document id (URL) to document content.
-    Saves the lookup in ../data/doc_id_text to speed up subsequent passes.
+    This function traverses all the jsonl files
+    and returns a dictionary containing document ID and corresponding content
+
+    Args
+    wikipedia_dir: the parent directory of the jsonl files
+    doc_id_dir: the location of wiki-pages
+
+    Returns
+    a dictionary: document ID as dictionary keys and document content as values.
+    
+    Remark: Saves the dictionary in ../data/doc_id_text to speed up subsequent passes.
     """
     # doc_id_text saves the title and content of each wiki-page
     doc_id_text=dict()
@@ -52,9 +61,13 @@ def parse_wiki(wikipedia_dir, doc_id_dir):
 
 
 def load_doclines(titles, t2jnum, filtering=True):
-    """load all lines for provided titles
+    """
+    This function loads all lines for provided document ID
+
     Args
-    titles: list of titles
+    titles: list of document ID
+
+    Remark: a document ID is the same as its title
     """
     if filtering:
         # select title from titles if this title is in the wiki-pages
@@ -68,12 +81,15 @@ def load_doclines(titles, t2jnum, filtering=True):
 
 
 def load_doc_lines(docs=dict(), t2jnum=dict(), wikipedia_dir="../data/wiki-pages/wiki-pages/"):
-    """Returns a dictionary from titles to line numbers to line text.
-    Args
-    docs: {claim_id: [(title, sentence_num),  ...], ...}
+    """
+    This function returns a dictionary from titles to line numbers to line text.
 
-    Input is a dictionary from claim ids to titles and line numbers,
-    and a lookup from titles to filenumbers.
+    Args
+    docs: a dictionary from claim ids to titles and line numbers
+    e.g., {claim_id: [(title, sentence_num),  ...], ...}
+
+
+    t2jnum: a dictionary from titles to filenumbers.
     """
     doclines = dict()
     jnums = dict()
@@ -112,13 +128,14 @@ def load_doc_lines(docs=dict(), t2jnum=dict(), wikipedia_dir="../data/wiki-pages
 
 
 def get_evidence_sentence_list(evidences, t2l2s, prependlinum=False, prependtitle=False):
-    """lookup corresponding sentences and return list of sentences
+    """
+    This function looks up corresponding evidence sentences and return list of sentences
     Args
     evidences: [(title, linum), ...]
     t2l2s: title2line2sentence <- output of load_doc_lines
 
-    Returns
-    list of evidence sentences
+    Return
+    a list of evidence sentences
     """
     SEP = "#"
     def process_title(title):
@@ -147,8 +164,12 @@ def get_evidence_sentence_list(evidences, t2l2s, prependlinum=False, prependtitl
 
 def load_dataset_json(path, instance_num=1e6):
     """
-    Reads the Fever Training set, returns list of examples.
-    instance_num: how many examples to load. Useful for debugging.
+    Args
+    path: the location of the data set tp read
+    instance_num: how many instances to load. Useful for debugging
+
+    Returns
+    a list of instances
     """
     data = []
     with open(path, 'r') as openfile:
@@ -159,7 +180,13 @@ def load_dataset_json(path, instance_num=1e6):
     return data
 
 def load_dataset(set_type,instance_num=1e6):
-    """Reads the Fever train/dev set used on the paper.
+    """
+    Args
+    set_type: the train/dev set
+    instance_num: the number of instances to read
+
+    Return
+    a list of instances by calling the function load_dataset_json
     """
     if set_type == 'train':
         dataset = load_dataset_json(path="/home/ubuntu/efs/fever_data/train.jsonl", instance_num=instance_num)
